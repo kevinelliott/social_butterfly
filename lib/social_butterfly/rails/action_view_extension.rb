@@ -1,6 +1,6 @@
 module SocialButterfly
   module Rails
-    class ActionViewExtension
+    module ActionViewExtension
       def facebook_share_button_url(content={}, options={})
         content = { :url  => polymorphic_url(self), :text => '' }.merge(content)
         options = { }.merge(options)
