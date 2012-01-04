@@ -39,8 +39,13 @@ module SocialButterfly
   def self.hook!
     load_framework!
     load_social_butterfly!
+    require 'social_butterfly/hooks'
     if rails?
+      require 'social_butterfly/rails/action_view_extension'
+      require 'social_butterfly/rails/railtie'
       require 'social_butterfly/rails/engine'
+    else
+      SocialButterfly::Hooks.init!
     end
   end
   

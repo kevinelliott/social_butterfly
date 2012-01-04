@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Kevin Elliott"]
   s.email       = ["kevin@welikeinc.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/kevinelliott/social_butterfly"
   s.summary     = %q{Now your content can be as popular as Cher in Clueless}
   s.description = %q{Share and track content on social networks in Ruby.}
 
@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.extra_rdoc_files = ['README.rdoc']
   s.require_paths = ["lib"]
+
+  s.licenses = ['MIT']
 
   %w{ activesupport actionpack railties }.each do |gem|
     s.add_dependency gem, ['>= 3.0.0']
