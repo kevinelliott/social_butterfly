@@ -2,7 +2,7 @@ require "social_butterfly"
 require "rails"
 
 module SocialButterfly
-  class Engine < Rails::Engine
+  class Engine < ::Rails::Engine
     initializer 'social_butterfly.ar_extensions', :before=>"action_controller.deprecated_routes" do |app|
       ActiveRecord::Base.extend SocialButterfly::Rails::ActsAsSocialButterfly
     end
