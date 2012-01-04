@@ -25,9 +25,15 @@ If you'd like to jump in and help out, please contact me and we can discuss. Oth
   
 If you're going to use this with Rails or some other Ruby-based web framework, be sure to add the gem to your Gemfile and run bundle install.
 
-== Example Usage
+== Example Implementations
 
-=== Generate a share URLs from a Model instance for attaching to buttons for Facebook, Google+ and Twitter
+The following sites have integrated this library and can give you an idea of how this library can be used.
+
+  {Vino Locale Wine Bar detail page at WineTribe}[http://winetribeapp.com/wine_bars/vino-locale-palo-alto/]
+
+== How To Integrate
+
+=== Generate share URLs from a Model instance for attaching to buttons/links for Facebook, Google+ and Twitter
 
   >> book = Book.find_by_name('Goldilocks and the Three Bears')
   >> content = { :url => polymorphic_url(book) }
