@@ -5,11 +5,12 @@ require "social_butterfly/version"
 Gem::Specification.new do |s|
   s.name        = "social_butterfly"
   s.version     = SocialButterfly::VERSION
+  s.platform    = Gem::Platform::RUBY
   s.authors     = ["Kevin Elliott"]
   s.email       = ["kevin@welikeinc.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Now your content can be as popular as Cher in Clueless}
+  s.description = %q{Share and track content on social networks in Ruby.}
 
   s.rubyforge_project = "social_butterfly"
 
