@@ -17,7 +17,7 @@ module SocialButterfly::Services
       end
 
       response = JSON.parse(c.body_str)
-      if response[0]['error'] == nil
+      if !response[0].present? || response[0]['error'].present?
         stats[:shares] = 0
       else
         stats[:shares] = response[0]['result']['metadata']['globalCounts']['count'].round
