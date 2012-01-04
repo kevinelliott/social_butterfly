@@ -1,0 +1,97 @@
+# social_butterfly
+{<img src="https://secure.travis-ci.org/kevinelliott/social_butterfly.png">}[http://travis-ci.org/kevinelliott/social_butterfly]
+
+Share and track site content with social networks, for Ruby. ActionController/ActionView integration coming soon.
+
+== About
+
+There are a significant number of gems and snippets out there that enable some kind of social integration for your Ruby or Rails app, but they are typically overly complicated and tend to focus on authentication/authorization more than offering useful integrations with the social networks. Interacting with the social networks often ends up requiring custom code to query a remote graph and then process returned JSON responses. This approach is fine for scenarios where custom solutions are required.
+
+But if you just want to snap on the ability to share some content on social networks and then track how well they are performing, that's where social_butterfly makes things easy. This library for Ruby exposes a simple API for interacting with various social networks, such as Facebook and Twitter, without requiring extensive custom code to integrate them into your applications.
+
+This is not an authentication or authorization gem. It is focused on helping you add features to your site that will help to promote site content.
+
+== Project Status
+
+=== In development.
+
+The architecture and feature set is still being determined, though the gem is currently useful in limited capacities.
+
+If you'd like to jump in and help out, please contact me and we can discuss. Otherwise, please do submit pull requests for bug fixes and minor feature enhancements.
+
+== Installation
+
+  gem install social_butterfly
+  
+If you're going to use this with Rails or some other Ruby-based web framework, be sure to add the gem to your Gemfile and run bundle install.
+
+== Example Usage
+
+=== Generate a share URLs from a Model instance for attaching to buttons for Facebook, Google+ and Twitter
+
+  >> book = Book.find_by_name('Goldilocks and the Three Bears')
+  >> content = { :url => polymorphic_url(book) }
+  >> SocialButterfly::Services::FacebookService.share_button_url(content)
+  => 'https://www.facebook.com/sharer/sharer.php?u=http://mysite.dev/books/4'
+
+  >> SocialButterfly::Services::GooglePlusService.share_button_url(content)
+  => 'https://plus.google.com/share?url=http://mysite.dev/books/4'
+
+  >> options = { :via => 'kevinelliott' }
+  >> SocialButterfly::Services::TwitterService.share_button_url(content, options)
+  => 'http://twitter.com/share?url=http://mysite.dev/books/4&text=Check%20this%20out%20--%20&via=kevinelliott&count=none'
+  
+=== Get Facebook share count for URL
+
+  >> content = { :url => 'http://winetribeapp.com/' }
+  => {:url=>"http://winetribeapp.com/"}
+  >> SocialButterfly::Services::FacebookService.track(content)
+  => {:shares=>2}
+  
+=== Get Google+ share count for URL
+
+  >> SocialButterfly::Services::GooglePlusService.track(content)
+  => {:shares=>1}
+  
+=== Get Twitter share count for URL
+
+  >> SocialButterfly::Services::TwitterService.track(content)
+  => {:shares=>3}
+  
+=== Get share counts for all known services
+
+  >> SocialButterfly::Services.track(content)
+  => {:facebook=>{:shares=>2}, :google_plus=>{:shares=>1}, :twitter=>{:shares=>3}}
+  
+
+== Maintainer
+
+* Kevin Elliott - http://kevinelliott.net - http://github.com/kevinelliott
+* WeLike - http://www.welikeinc.com - http://github.com/welike
+
+== Contributors
+
+No one else has contributed yet, but they'll be acknowledged here once they do.
+
+== License
+
+(The MIT License)
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
