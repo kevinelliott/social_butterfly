@@ -17,9 +17,13 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.extra_rdoc_files = ['README.rdoc']
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  %w{ activesupport actionpack railties }.each do |gem|
+    s.add_dependency gem, ['>= 3.0.0']
+  end
+  %w{ activerecord activemodel }.each do |gem|
+    s.add_development_dependency gem, ['>= 3.0.0']
+  end
 end
