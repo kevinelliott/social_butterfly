@@ -1,4 +1,4 @@
-# social_butterfly
+= social_butterfly
 {<img src="https://secure.travis-ci.org/kevinelliott/social_butterfly.png">}[http://travis-ci.org/kevinelliott/social_butterfly]
 
 Share and track site content with social networks, for Ruby. ActionController/ActionView integration coming soon.
