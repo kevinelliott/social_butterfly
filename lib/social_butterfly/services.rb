@@ -4,5 +4,12 @@ require 'social_butterfly/services/twitter_service'
 
 module SocialButterfly
   module Services
+    def track(content, options={})
+      results = {}
+      results[:facebook]    = SocialButterfly::Services::FacebookService.track(content, options)
+      results[:google_plus] = SocialButterfly::Services::GooglePlusService.track(content, options)
+      results[:twitter]     = SocialButterfly::Services::TwitterService.track(content, options)
+      results
+    end
   end
 end
