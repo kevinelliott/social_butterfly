@@ -1,4 +1,5 @@
 require "social_butterfly"
+require "social_butterfly/rails"
 require "rails"
 
 module SocialButterfly
