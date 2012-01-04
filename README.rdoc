@@ -29,7 +29,7 @@ If you're going to use this with Rails or some other Ruby-based web framework, b
 
 The following sites have integrated this library and can give you an idea of how this library can be used.
 
-  {Vino Locale Wine Bar detail page at WineTribe}[http://winetribeapp.com/wine_bars/vino-locale-palo-alto/]
+{Vino Locale Wine Bar detail page at WineTribe}[http://winetribeapp.com/wine_bars/vino-locale-palo-alto/]
 
 == How To Integrate
 
