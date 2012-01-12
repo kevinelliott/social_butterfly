@@ -1,11 +1,11 @@
 <%= link_to( image_tag('social-facebook.png')+"Share on Facebook",
              facebook_share_button_url( { :url => polymorphic_url(item) } ) 
            ) %>
-<span class="spacer">|</span>
+<span class="spacer"></span>
 <%= link_to( image_tag('social-twitter.png')+'Tweet It',
              twitter_share_button_url( { :url => polymorphic_url(item) } ) 
            ) %>
-<span class="spacer">|</span>
+<span class="spacer"></span>
 <%= link_to( image_tag( 'social-gplus.png')+'Share on Google+',
              google_plus_share_button_url( { :url => polymorphic_url(item) } ) 
            ) %>
